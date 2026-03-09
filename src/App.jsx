@@ -31,7 +31,6 @@ const App = () => {
 
     const shuffledData = useMemo(() => {
         if (view !== 'quiz') return questions;
-
         return [...questions]
             .sort(() => Math.random() - 0.5)
             .map(q => ({
@@ -52,14 +51,14 @@ const App = () => {
             const correctAnswers = Array.isArray(currentQ.correctAnswer)
                 ? currentQ.correctAnswer.map(normalize)
                 : [normalize(currentQ.correctAnswer)];
-
             isCorrect = userSelection.length === correctAnswers.length &&
                 userSelection.every(val => correctAnswers.includes(val));
         } else {
+            const finalChoice = Array.isArray(selected) ? selected[0] : selected;
             const correctSingle = Array.isArray(currentQ.correctAnswer)
                 ? normalize(currentQ.correctAnswer[0])
                 : normalize(currentQ.correctAnswer);
-            isCorrect = normalize(selected) === correctSingle;
+            isCorrect = normalize(finalChoice) === correctSingle;
         }
 
         setUserAnswers(prev => [...prev, {
@@ -81,12 +80,12 @@ const App = () => {
     useEffect(() => {
         if (quizFinished || view !== 'quiz') return;
         if (timer === 0) {
-            handleAnswer(shuffledData[currentIndex]?.type === 'multiple' ? [] : "Temps écoulé");
+            handleAnswer(selectedOptions.length > 0 ? selectedOptions : "Temps écoulé");
             return;
         }
         const interval = setInterval(() => setTimer(t => t - 1), 1000);
         return () => clearInterval(interval);
-    }, [timer, quizFinished, view, handleAnswer, shuffledData, currentIndex]);
+    }, [timer, quizFinished, view, handleAnswer, selectedOptions]);
 
     const saveToDisk = async (data) => {
         try {
@@ -106,7 +105,6 @@ const App = () => {
         const f = new FormData(e.target);
         const type = f.get('type');
         const correctRaw = f.get('c');
-
         const newQ = {
             id: Date.now(),
             question: f.get('q'),
@@ -116,7 +114,6 @@ const App = () => {
                 ? correctRaw.split(',').map(s => s.trim())
                 : correctRaw.trim()
         };
-
         const updated = [...questions, newQ];
         setQuestions(updated);
         localStorage.setItem('quiz_questions', JSON.stringify(updated));
@@ -134,7 +131,7 @@ const App = () => {
                     <p>Prêt à tester vos connaissances ?</p>
                 </div>
                 <div className="home-grid">
-                    <button className="home-card join" onClick={() => { setView('quiz'); setCurrentIndex(0); setUserAnswers([]); setQuizFinished(false); setTimer(15); }}>
+                    <button className="home-card join" onClick={() => { setView('quiz'); setCurrentIndex(0); setUserAnswers([]); setQuizFinished(false); setTimer(15); setSelectedOptions([]); }}>
                         <div className="icon-circle"><FaPlay /></div>
                         <span>Rejoindre le Quiz</span>
                     </button>
@@ -158,14 +155,7 @@ const App = () => {
                 <div className="auth-card">
                     <FaLock className="lock-icon" />
                     <h2>Accès Restreint</h2>
-                    <input
-                        type="password"
-                        placeholder="Mot de passe..."
-                        autoFocus
-                        value={adminPasswordInput}
-                        onChange={(e) => setAdminPasswordInput(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && checkPass()}
-                    />
+                    <input type="password" placeholder="Mot de passe..." autoFocus value={adminPasswordInput} onChange={(e) => setAdminPasswordInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && checkPass()} />
                     <button className="retry-btn" onClick={checkPass}>Se connecter</button>
                 </div>
                 {notification && <div className={`toast toast-${notification.type}`}>{notification.message}</div>}
@@ -213,7 +203,6 @@ const App = () => {
         const score = userAnswers.filter(a => a.isCorrect).length;
         const total = userAnswers.length;
         const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
-
         return (
             <div className="container results-container">
                 <div className="score-circle-wrapper">
@@ -267,23 +256,26 @@ const App = () => {
                     return (
                         <div key={i} className={`option-card ${isSelected ? 'selected' : ''}`}
                              onClick={() => {
-                                 if (q.type !== 'multiple') handleAnswer(opt);
-                                 else setSelectedOptions(prev => prev.includes(opt) ? prev.filter(o => o !== opt) : [...prev, opt]);
+                                 if (q.type === 'single') {
+                                     setSelectedOptions([opt]);
+                                 } else {
+                                     setSelectedOptions(prev => prev.includes(opt) ? prev.filter(o => o !== opt) : [...prev, opt]);
+                                 }
                              }}>
                             <div className="option-content">
                                 <span className="option-letter">{String.fromCharCode(65 + i)}</span>
                                 <span className="option-text-value">{opt}</span>
                             </div>
-                            {q.type === 'multiple' && <div className={`multi-indicator ${isSelected ? 'active' : ''}`}>{isSelected && "✓"}</div>}
+                            <div className={`multi-indicator ${isSelected ? 'active' : ''}`}>{isSelected && "✓"}</div>
                         </div>
                     );
                 })}
             </div>
-            {q.type === 'multiple' && (
-                <button className="retry-btn" style={{marginTop: '25px'}} onClick={() => handleAnswer(selectedOptions)} disabled={selectedOptions.length === 0}>
-                    Valider
-                </button>
-            )}
+            <button className="retry-btn" style={{marginTop: '25px'}}
+                    onClick={() => handleAnswer(q.type === 'single' ? selectedOptions[0] : selectedOptions)}
+                    disabled={selectedOptions.length === 0}>
+                Valider la réponse
+            </button>
         </div>
     );
 };
