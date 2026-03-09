@@ -222,8 +222,16 @@ const App = () => {
                             <div className="correction-body">
                                 <p className="q-text">{ans.question}</p>
                                 <div className="answer-comparison">
-                                    <span><strong>Choix:</strong> {Array.isArray(ans.selected) ? ans.selected.join(', ') : ans.selected}</span>
-                                    {!ans.isCorrect && <span><strong>Correct:</strong> {Array.isArray(ans.correct) ? ans.correct.join(', ') : ans.correct}</span>}
+                                    <div className="answer-item user">
+                                        <span className="answer-label">Ton choix</span>
+                                        <span className="answer-val">{Array.isArray(ans.selected) ? ans.selected.join(', ') : ans.selected}</span>
+                                    </div>
+                                    {!ans.isCorrect && (
+                                        <div className="answer-item correct">
+                                            <span className="answer-label">Correct</span>
+                                            <span className="answer-val">{Array.isArray(ans.correct) ? ans.correct.join(', ') : ans.correct}</span>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -266,7 +274,7 @@ const App = () => {
                                 <span className="option-letter">{String.fromCharCode(65 + i)}</span>
                                 <span className="option-text-value">{opt}</span>
                             </div>
-                            <div className={`multi-indicator ${isSelected ? 'active' : ''}`}>{isSelected && "✓"}</div>
+                            <div className={`multi-indicator ${isSelected ? 'active' : ''}`}>{isSelected && <FaCheck/>}</div>
                         </div>
                     );
                 })}
