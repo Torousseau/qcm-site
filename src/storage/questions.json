@@ -1,28 +1,142 @@
 [
   {
-    "id": 1773060869580,
-    "question": "Combien de cartes y a-t-il au Tarot ?",
-    "options": [
-      "54",
-      "78",
-      "46",
-      "62"
-    ],
-    "correctAnswer": "78"
+    "id": 1,
+    "question": "Vrai ou Faux : Le soleil est une étoile.",
+    "options": ["Vrai", "Faux"],
+    "correctAnswer": ["Vrai"],
+    "type": "single"
   },
   {
-    "id": 1773062532944,
-    "question": "Qui est blanc ?",
-    "type": "multiple",
-    "options": [
-      "Le cheval d'Henry IV",
-      "MJ",
-      "Du lait",
-      "Antime"
-    ],
-    "correctAnswer": [
-      "Le cheval d'Henry IV",
-      "Du lait"
-    ]
+    "id": 2,
+    "question": "Quels langages sont utilisés pour le stylage et la structure web ?",
+    "options": ["HTML", "CSS", "C++", "Java"],
+    "correctAnswer": ["HTML", "CSS"],
+    "type": "multiple"
+  },
+  {
+    "id": 3,
+    "question": "Quelle est la capitale de la France ?",
+    "options": ["Lyon", "Marseille", "Paris", "Bordeaux"],
+    "correctAnswer": ["Paris"],
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "question": "Vrai ou Faux : L'eau bout à 90°C au niveau de la mer.",
+    "options": ["Vrai", "Faux"],
+    "correctAnswer": ["Faux"],
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "question": "Parmi ces réseaux sociaux, lesquels appartiennent à Meta ?",
+    "options": ["Instagram", "TikTok", "WhatsApp", "X (Twitter)"],
+    "correctAnswer": ["Instagram", "WhatsApp"],
+    "type": "multiple"
+  },
+  {
+    "id": 6,
+    "question": "Quel est l'organe le plus volumineux du corps humain ?",
+    "options": ["Le cerveau", "Le foie", "La peau", "Les poumons"],
+    "correctAnswer": ["La peau"],
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "question": "Vrai ou Faux : La foudre est plus chaude que la surface du soleil.",
+    "options": ["Vrai", "Faux"],
+    "correctAnswer": ["Vrai"],
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "question": "Quels pays se trouvent en Amérique du Sud ?",
+    "options": ["Brésil", "Mexique", "Argentine", "Espagne"],
+    "correctAnswer": ["Brésil", "Argentine"],
+    "type": "multiple"
+  },
+  {
+    "id": 9,
+    "question": "Combien de cœurs possède une pieuvre ?",
+    "options": ["1", "2", "3", "8"],
+    "correctAnswer": ["3"],
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "question": "Vrai ou Faux : Le Python est un langage de programmation compilé.",
+    "options": ["Vrai", "Faux"],
+    "correctAnswer": ["Faux"],
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "question": "Quelles sont les couleurs primaires en peinture ?",
+    "options": ["Rouge", "Vert", "Bleu", "Jaune"],
+    "correctAnswer": ["Rouge", "Bleu", "Jaune"],
+    "type": "multiple"
+  },
+  {
+    "id": 12,
+    "question": "Quel est le plus grand océan du monde ?",
+    "options": ["Atlantique", "Indien", "Arctique", "Pacifique"],
+    "correctAnswer": ["Pacifique"],
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "question": "Vrai ou Faux : Les pingouins peuvent voler.",
+    "options": ["Vrai", "Faux"],
+    "correctAnswer": ["Faux"],
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "question": "Quels éléments chimiques composent une molécule d'eau ?",
+    "options": ["Hydrogène", "Azote", "Oxygène", "Carbone"],
+    "correctAnswer": ["Hydrogène", "Oxygène"],
+    "type": "multiple"
+  },
+  {
+    "id": 15,
+    "question": "En quelle année a eu lieu la chute du mur de Berlin ?",
+    "options": ["1985", "1989", "1991", "1993"],
+    "correctAnswer": ["1989"],
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "question": "Vrai ou Faux : Le mont Everest est la montagne la plus haute du monde.",
+    "options": ["Vrai", "Faux"],
+    "correctAnswer": ["Vrai"],
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "question": "Parmi ces inventeurs, lesquels sont liés à l'informatique ?",
+    "options": ["Alan Turing", "Ada Lovelace", "Thomas Edison", "Steve Jobs"],
+    "correctAnswer": ["Alan Turing", "Ada Lovelace", "Steve Jobs"],
+    "type": "multiple"
+  },
+  {
+    "id": 18,
+    "question": "Quel métal est liquide à température ambiante ?",
+    "options": ["Or", "Argent", "Mercure", "Plomb"],
+    "correctAnswer": ["Mercure"],
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "question": "Vrai ou Faux : Une année bissextile compte 366 jours.",
+    "options": ["Vrai", "Faux"],
+    "correctAnswer": ["Vrai"],
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "question": "Quels films ont été réalisés par Christopher Nolan ?",
+    "options": ["Inception", "Interstellar", "Pulp Fiction", "The Dark Knight"],
+    "correctAnswer": ["Inception", "Interstellar", "The Dark Knight"],
+    "type": "multiple"
   }
 ]
