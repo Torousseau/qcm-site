@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1773060869580,
+    "question": "Combien de cartes y a-t-il au Tarot ?",
+    "options": [
+      "54",
+      "78",
+      "46",
+      "62"
+    ],
+    "correctAnswer": "78"
+  },
+  {
+    "id": 1773062532944,
+    "question": "Qui est blanc ?",
+    "type": "multiple",
+    "options": [
+      "Le cheval d'Henry IV",
+      "MJ",
+      "Du lait",
+      "Antime"
+    ],
+    "correctAnswer": [
+      "Le cheval d'Henry IV",
+      "Du lait"
+    ]
+  }
+]
