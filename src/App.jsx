@@ -135,10 +135,10 @@ const App = () => {
                         <div className="icon-circle"><FaPlay /></div>
                         <span>Rejoindre le Quiz</span>
                     </button>
-                    <button className="home-card create" onClick={() => setView('admin_auth')}>
-                        <div className="icon-circle"><FaPlus /></div>
-                        <span>Espace Admin</span>
-                    </button>
+                    {/*<button className="home-card create" onClick={() => setView('admin_auth')}>*/}
+                    {/*    <div className="icon-circle"><FaPlus /></div>*/}
+                    {/*    <span>Espace Admin</span>*/}
+                    {/*</button>*/}
                 </div>
             </div>
         );
