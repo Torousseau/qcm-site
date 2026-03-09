@@ -83,7 +83,7 @@ header { margin-bottom: 2.5rem; }
 .option-card.selected .option-letter { background: var(--primary); color: white; }
 .option-text-value { font-size: 1.35rem; font-weight: 600; }
 
-.multi-indicator { width: 34px; height: 34px; border: 2px solid #cbd5e1; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+.multi-indicator { width: 34px; height: 34px; border: 2px solid #cbd5e1; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--white); }
 .multi-indicator.active { background: var(--primary); border-color: var(--primary); }
 
 .admin-panel { max-width: 950px; text-align: left; }
