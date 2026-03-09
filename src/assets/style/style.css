@@ -263,7 +263,7 @@ header { margin-bottom: 2.5rem; }
 }
 .hero-section p { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; }
 
-.home-grid { display: flex; justify-content: space-between; align-items: center; }
+.home-grid { display: flex; justify-content: center; align-items: center; }
 .home-card {
     background: var(--white); border: 2px solid #f1f5f9; padding: 45px 30px; border-radius: 28px;
     cursor: pointer; transition: var(--transition); display: flex; flex-direction: column; align-items: center; gap: 15px;
